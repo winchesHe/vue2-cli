@@ -13,11 +13,9 @@
 
 <img width="468" alt="image" src="https://github.com/winchesHe/git-cli/assets/96854855/26565e15-0700-4715-8fc9-fba6a733669b">
 
-### 自动安装 git hooks
-
-![2023-08-06 13 49 09](https://github.com/winchesHe/git-cli/assets/96854855/98f40324-63fd-454c-abf2-5eb37d51e380)
-
 ## 使用
+
+进入到项目的根目录，随后运行下面的指令
 
 ```bash
 npx @winches/vue2-cli inject-hooks
@@ -28,6 +26,10 @@ npm i -g @winches/vue2-cli
 # 运行
 vue2-cli inject-hooks
 ```
+
+开始自动安装 git hooks
+
+![2023-08-06 13 49 09](https://github.com/winchesHe/git-cli/assets/96854855/98f40324-63fd-454c-abf2-5eb37d51e380)
 
 ## 功能二、实现 vue2 全局组件提示
 ### vue2 项目全局注册组件直接使用没有提示
