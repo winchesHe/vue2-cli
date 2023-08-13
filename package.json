@@ -1,7 +1,7 @@
 {
-  "name": "@winches/git-cli",
+  "name": "@winches/vue2-cli",
   "type": "module",
-  "version": "0.0.3",
+  "version": "0.0.1",
   "description": "",
   "author": {
     "name": "winches"
@@ -10,13 +10,13 @@
   "keywords": [],
   "sideEffects": false,
   "bin": {
-    "git-cli": "dist/index.js"
+    "vue2-cli": "dist/cli.js"
   },
   "scripts": {
     "prepublishOnly": "npm run build",
     "dev": "tsup --watch",
     "build": "tsup-node",
-    "start": "esno src/index.ts",
+    "start": "tsx src/cli.ts",
     "lint": "eslint --cache --ext ts,tsx,vue .",
     "changlog": "npx conventional-changelog -p angular -i CHANGELOG.md -s",
     "release": "bumpp --execute=\"npm run changlog\" --all"
@@ -27,10 +27,10 @@
       "require": "./dist/index.js",
       "import": "./dist/index.js"
     },
-    "./utils": {
-      "types": "./dist/utils/index.d.ts",
-      "require": "./dist/utils/index.js",
-      "import": "./dist/utils/index.js"
+    "./cli": {
+      "types": "./dist/cli/index.d.ts",
+      "require": "./dist/cli/index.js",
+      "import": "./dist/cli/index.js"
     }
   },
   "main": "./dist/index.js",
@@ -52,19 +52,22 @@
     "registry": "https://registry.npmjs.org/"
   },
   "dependencies": {
+    "@inquirer/input": "^1.2.7",
     "@inquirer/select": "^1.2.7",
+    "@vuese/parser": "^2.10.3",
     "@winches/utils": "^0.0.8",
     "chalk": "^5.2.0",
-    "commander": "^10.0.0",
     "find-up": "^6.3.0",
     "log-update": "^5.0.1",
     "prettier": "^3.0.1",
     "read-pkg": "^8.0.0",
-    "sisteransi": "^1.0.5"
+    "sisteransi": "^1.0.5",
+    "yargs": "^17.2.2"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.40.0",
     "@types/node": "^18.7.18",
+    "@types/yargs": "^17.0.24",
     "eslint": "^8.46.0",
     "lint-staged": "^13.1.2",
     "simple-git-hooks": "^2.8.1",
