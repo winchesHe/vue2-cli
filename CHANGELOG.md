@@ -1,3 +1,12 @@
+## 0.0.2 (2023-08-13)
+
+
+### Features
+
+* 完成vetur功能 ([bf352bd](https://github.com/winchesHe/vue2-cli/commit/bf352bd0a2b20f82607456d79065c527a9db81ed))
+
+
+
 
 ## 0.0.3 (2023-08-07)
 

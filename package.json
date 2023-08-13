@@ -1,7 +1,7 @@
 {
   "name": "@winches/vue2-cli",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "author": {
     "name": "winches"
@@ -18,7 +18,7 @@
     "build": "tsup-node",
     "start": "tsx src/cli.ts",
     "lint": "eslint --cache --ext ts,tsx,vue .",
-    "changlog": "npx conventional-changelog -p angular -i CHANGELOG.md -s",
+    "changlog": "npx conventional-changelog -p angular -i CHANGELOG.md -s && git add .",
     "release": "bumpp --execute=\"npm run changlog\" --all"
   },
   "exports": {
