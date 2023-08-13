@@ -2,38 +2,7 @@
 
 [![NPM version](https://img.shields.io/npm/v/pkg-name?color=a1b858&label=)](https://www.npmjs.com/package/pkg-name)
 
-## 功能一、 inject-hooks
-### 项目多人协作的困扰
-
-相信大家多多少少都遇到过，当主线分支的代码，合入到自己的分支的时候，如果这时候，主线中有一些**依赖的更新或者添加或者删除**，如果合入之后，没有及时的`install`的话，项目启动的时候，可能就会报错！
-
-## ⭐️ hooks 功能
-
-### 当检测到 `lock` 文件变更时，重新安装依赖
-
-<img width="468" alt="image" src="https://github.com/winchesHe/git-cli/assets/96854855/26565e15-0700-4715-8fc9-fba6a733669b">
-
-## 使用
-
-进入到项目的根目录，随后运行下面的指令
-
-```bash
-npx @winches/vue2-cli inject-hooks
-```
-
-或者全局安装运行
-
-```bash
-npm i -g @winches/vue2-cli
-# 运行
-vue2-cli inject-hooks
-```
-
-开始自动安装 git hooks
-
-![2023-08-06 13 49 09](https://github.com/winchesHe/git-cli/assets/96854855/98f40324-63fd-454c-abf2-5eb37d51e380)
-
-## 功能二、实现 vue2 全局组件提示
+## 功能一、实现 vue2 全局组件提示
 ### vue2 项目全局注册组件直接使用没有提示
 
 由于`vue2`中使用`volar`存在很大的性能问题，所以只能继续使用`vetur`，但是这样全局组件会没有提示，这对于开发来说，体验十分不友好，所以开发此`cli`并借助`vetur`帮助解决这个问题。
@@ -88,4 +57,35 @@ vue2-cli vetur -p <导出组件文件相对路径> -n [components]
   }
 }
 ```
+
+## 功能二、 inject-hooks
+### 项目多人协作的困扰
+
+相信大家多多少少都遇到过，当主线分支的代码，合入到自己的分支的时候，如果这时候，主线中有一些**依赖的更新或者添加或者删除**，如果合入之后，没有及时的`install`的话，项目启动的时候，可能就会报错！
+
+## ⭐️ hooks 功能
+
+### 当检测到 `lock` 文件变更时，重新安装依赖
+
+<img width="468" alt="image" src="https://github.com/winchesHe/git-cli/assets/96854855/26565e15-0700-4715-8fc9-fba6a733669b">
+
+## 使用
+
+进入到项目的根目录，随后运行下面的指令
+
+```bash
+npx @winches/vue2-cli inject-hooks
+```
+
+或者全局安装运行
+
+```bash
+npm i -g @winches/vue2-cli
+# 运行
+vue2-cli inject-hooks
+```
+
+开始自动安装 git hooks
+
+![2023-08-06 13 49 09](https://github.com/winchesHe/git-cli/assets/96854855/98f40324-63fd-454c-abf2-5eb37d51e380)
 
