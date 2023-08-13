@@ -21,6 +21,8 @@
 npx @winches/vue2-cli inject-hooks
 ```
 
+或者全局安装运行
+
 ```bash
 npm i -g @winches/vue2-cli
 # 运行
