@@ -54,7 +54,7 @@ vue2-cli inject-hooks
 npm i -g @winches/vue2-cli
 ```
 
-进入到项目使用组件库处导出入口处，比如`element-ui`的`index.js`
+进入到项目使用的组件库导出入口文件，比如`element-ui`的`index.js`
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/56a7c2a6d3eb46a3a95f947d6731d030.png)
 
