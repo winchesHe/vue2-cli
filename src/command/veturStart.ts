@@ -177,16 +177,28 @@ function transformCompResult(result: ParserResult | null, compName: string) {
   const tagAttr: any[] = []
 
   result.props?.forEach((prop) => {
+    const _desc = prop.describe?.join(enterKey)
+    const _default = prop.default || ''
+    const _defaultDesc = prop.defaultDesc || ''
+    const _typeDesc = prop.typeDesc || ''
+    const _require = prop.required || ''
+    const _type = prop.type
+
+    const allDesc = `类型：\`${_type}\` ${_require ? '`必填值`' : '`可选值`'}${enterKey}${_desc}${enterKey}${_default ? `默认值：\`${_default}\` ${_defaultDesc}` : ''}${enterKey}${_typeDesc ? `选项：${_typeDesc.join(' ')}` : ''}`
+    const description = allDesc.replace(/(?<=\n\r)(\n\r)+/g, '')
+
     tagAttr.push(`${prop.name}`)
     attributeJson[`${tag}/${prop.name}`] = {
-      description: prop.describe,
+      description,
       type: prop.type,
     }
   })
   result.events?.forEach((event) => {
+    const _desc = event.describe?.join(enterKey)
+
     tagAttr.push(`${event.name}`)
     attributeJson[`${tag}/${event.name}`] = {
-      description: event.describe,
+      description: _desc,
       type: 'event',
     }
   })
