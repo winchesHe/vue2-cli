@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { extname, resolve } from 'node:path'
-import { printColorLogs, printErrorLogs, printSuccessLogs } from '@winches/utils'
+import { printColorLogs, printErrorLogs, printSuccessLogs, printWarnLogs } from '@winches/utils'
 import input from '@inquirer/input'
 import type { ParserResult } from '@vuese/parser'
 import { parser } from '@vuese/parser'
@@ -11,6 +11,7 @@ import { cwd, generateSmoothGradient, getMatchExport, getMatchImport, normalizeP
 
 let prefixName: string
 let docs: string
+let errorCount = 0
 export const tagJson: any = {}
 export const attributeJson: any = {}
 const enterKey = '\n\r'
@@ -114,6 +115,7 @@ export async function veturStart(config: VeturConfig) {
     writeFileSync(veturAttrPath, attrOutput, 'utf-8')
 
     printSuccessLogs('✨ 安装 vetur !')
+    errorCount && printWarnLogs(`当前存在不能解析文件: ${errorCount} 个（可能会导致缺失该文件组件属性提示）`)
   }
 }
 
@@ -139,6 +141,7 @@ function parseCompFile(path: string, content: string) {
   catch (error) {
     console.log('该路径内容解析失败: ', path)
     console.log('报错内容: ', error)
+    errorCount++
   }
 
   return parseComp
