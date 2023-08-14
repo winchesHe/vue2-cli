@@ -61,7 +61,7 @@ export async function veturStart(config: VeturConfig) {
       docs = _docs
 
       const fileContent = readFileSync(resolvePath, 'utf-8')
-      const match = fileContent.match(new RegExp(`.*${name}.*\\[(.*)\\]`, 's'))?.[1] || ''
+      const match = fileContent.match(new RegExp(`.*${name}.*?\\[(.*)\\]`, 's'))?.[1] || ''
       const compArr = match.split(',').map(i => i.trim())
       const importArr = getMatchImport(fileContent)
       const compRest: [string, string][] = []
