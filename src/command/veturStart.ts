@@ -176,6 +176,9 @@ function transformCompResult(result: ParserResult | null, compName: string) {
   const tagDesc = docs ? `${tag}${enterKey}文档地址：${docs}/${compDesc}${enterKey}${_tagDesc}` : `${tag}${enterKey}${_tagDesc}`
   const tagAttr: any[] = []
 
+  if (/[;'",]/.test(tag))
+    return
+
   result.props?.forEach((prop) => {
     const _desc = prop.describe?.join(enterKey)
     const _default = prop.default || ''
