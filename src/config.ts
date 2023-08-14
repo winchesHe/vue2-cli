@@ -14,7 +14,7 @@ export async function normalizeConfig(args: Args): Promise<VeturConfig> {
   const { name, path, mode, prefix, docs: _docs } = args
   let docs: string = ''
 
-  if (_docs)
+  if (!_docs)
     docs = (await input({ message: '请输入组件库文档地址' })).replace(/\/$/, '')
 
   return {

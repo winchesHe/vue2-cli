@@ -1,6 +1,6 @@
 import inquirer from 'inquirer'
 
-export const getName = async (): Promise<string> => {
+export async function getName(): Promise<string> {
   const strName = {
     type: 'input',
     name: 'projectName',

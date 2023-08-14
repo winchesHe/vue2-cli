@@ -123,16 +123,24 @@ function isIndexComp(content: string) {
 }
 
 function parseCompFile(path: string, content: string) {
-  let parseComp: ParserResult
+  let parseComp: ParserResult | null = null
   const isJs = path.includes('.js')
-  if (isJs) {
-    parseComp = parser(content, {
-      jsFile: true,
-    })
+
+  try {
+    if (isJs) {
+      parseComp = parser(content, {
+        jsFile: true,
+      })
+    }
+    else {
+      parseComp = parser(content)
+    }
   }
-  else {
-    parseComp = parser(content)
+  catch (error) {
+    console.log('该路径内容解析失败: ', path)
+    console.log('报错内容: ', error)
   }
+
   return parseComp
 }
 
@@ -155,10 +163,14 @@ function transformIndexComp(content: string, activePath = '') {
   return result
 }
 
-function transformCompResult(result: ParserResult, compName: string) {
+function transformCompResult(result: ParserResult | null, compName: string) {
+  if (!result)
+    return
+
   const _tagDesc = result.componentDesc?.default?.[0] || ''
-  const tagDesc = docs ? `${compName}${enterKey}文档地址：${docs}/${compName}${enterKey}${_tagDesc}` : `${compName}${enterKey}${_tagDesc}`
+  const compDesc = compName.includes(prefixName) ? compName.replace(`${prefixName}-`, '') : compName
   const tag = compName.includes(prefixName) ? compName : `${prefixName.toLowerCase()}-${compName}`
+  const tagDesc = docs ? `${tag}${enterKey}文档地址：${docs}/${compDesc}${enterKey}${_tagDesc}` : `${tag}${enterKey}${_tagDesc}`
   const tagAttr: any[] = []
 
   result.props?.forEach((prop) => {

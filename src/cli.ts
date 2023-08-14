@@ -45,9 +45,8 @@ yargs(hideBin(process.argv))
         })
         .option('docs', {
           alias: 'd',
-          type: 'boolean',
-          default: false,
-          describe: '是否需要组件文档地址',
+          type: 'string',
+          describe: '组件文档地址',
         })
         .demandOption('path', c.yellow('请为命令添加 path 选项值'))
     },
