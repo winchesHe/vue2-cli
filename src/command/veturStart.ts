@@ -185,7 +185,7 @@ function transformCompResult(result: ParserResult | null, compName: string) {
     const _type = prop.type
 
     const allDesc = `类型：\`${_type}\` ${_require ? '`必填值`' : '`可选值`'}${enterKey}${_desc}${enterKey}${_default ? `默认值：\`${_default}\` ${_defaultDesc}` : ''}${enterKey}${_typeDesc ? `选项：${_typeDesc.join(' ')}` : ''}`
-    const description = allDesc.replace(/(?<=\n\r)(\n\r)+/g, '')
+    const description = allDesc.replace(/(?<=\n\r)(\n\r)+/g, '').replace(/(\n\r)$/, '')
 
     tagAttr.push(`${prop.name}`)
     attributeJson[`${tag}/${prop.name}`] = {
