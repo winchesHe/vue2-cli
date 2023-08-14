@@ -33,6 +33,9 @@ export async function veturStart(config: VeturConfig) {
     prefixName = await input({ message: '请输入组件的前缀' })
     console.log()
   }
+  else {
+    prefixName = prefix
+  }
 
   const _while = () => {
     return run()
@@ -75,7 +78,7 @@ export async function veturStart(config: VeturConfig) {
       }
 
       for (const [name, path] of compRest) {
-        const convertPath = extname(setExtPath(path)) ? path : setExtPath(path)
+        const convertPath = extname(path) ? path : setExtPath(path)
         const _content = readFileSync(convertPath, 'utf-8')
         const isMatchIndexComp = isIndexComp(_content)
 
